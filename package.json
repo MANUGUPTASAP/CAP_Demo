@@ -13,7 +13,8 @@
     "@sap/xssec": "^2.1.16",
     "express": "^4",
     "hdb": "^0.18.0",
-    "passport": "^0.4.0"
+    "passport": "^0.4.0",
+    "grunt": "~0.4.5"
   },
   "scripts": {},
   "cds": {

@@ -38,6 +38,21 @@ modules:
       properties:
         mtx-url: ${default-url}
 
+ - name: my-bookshop-app
+   type: html5
+   path: app
+   build-parameters:
+      builder: grunt
+   requires:
+    - name: my-bookshop-uaa-mt
+    - name: srv-binding
+      group: destinations
+      properties:
+       forwardAuthToken: true
+       strictSSL: false
+       name: srv-binding
+       url: ~{srv-url}    
+
 
 
 resources:
@@ -59,7 +74,8 @@ resources:
    type: org.cloudfoundry.managed-service
    parameters:
      service: xsuaa
-     service-plan: application  
+     service-plan: application
+     path: xs-security.json  
      config:
        xsappname: -${space}    #  name + space dependency
        tenant-mode: dedicated

@@ -1,0 +1,104 @@
+{
+  "xsappname": "isa",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of ISA-M application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.super-admin",
+      "description": "Super Administrator scope"
+    },
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "Administrator scope"
+    },
+    {
+      "name": "$XSAPPNAME.enterprise-architect",
+      "description": "Enterprise Architect scope"
+    },
+    {
+      "name": "$XSAPPNAME.integration-architect",
+      "description": "Integration Architect scope"
+    },
+    {
+      "name": "$XSAPPNAME.integration-developer",
+      "description": "Integration Developer scope"
+    },
+    {
+      "name": "$XSAPPNAME.integration-admin",
+      "description": "Integration Administrator scope"
+    },
+    {
+      "name": "$XSAPPNAME.business-domain-expert",
+      "description": "Business Domain Expert scope"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    {
+        "name": "SuperAdministrator",
+        "description": "Super Administrator",
+        "scope-references": [
+          "$XSAPPNAME.super-admin"
+        ],
+        "attribute-references": []
+      },
+      {
+        "name": "Administrator",
+        "description": "Administrator",
+        "scope-references": [
+          "$XSAPPNAME.admin"
+        ],
+        "attribute-references": []
+      },
+      {
+        "name": "EnterpriseArchitect",
+        "description": "Enterprise Architect",
+        "scope-references": [
+          "$XSAPPNAME.enterprise-architect"
+        ],
+        "attribute-references": []
+      },
+      {
+        "name": "IntegrationArchitect",
+        "description": "Integration Architect",
+        "scope-references": [
+          "$XSAPPNAME.integration-architect"
+        ],
+        "attribute-references": []
+      },
+      {
+        "name": "IntegrationDeveloper",
+        "description": "Integration Developer",
+        "scope-references": [
+          "$XSAPPNAME.integration-developer"
+        ],
+        "attribute-references": []
+      },
+      {
+        "name": "IntegrationAdministrator",
+        "description": "Integration Administrator",
+        "scope-references": [
+          "$XSAPPNAME.integration-admin"
+        ],
+        "attribute-references": []
+      },
+      {
+        "name": "BusinessDomainExpert",
+        "description": "Business Domain Expert",
+        "scope-references": [
+          "$XSAPPNAME.business-domain-expert"
+        ],
+        "attribute-references": []
+      }
+  ]
+}
