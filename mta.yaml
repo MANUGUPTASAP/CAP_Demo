@@ -52,6 +52,8 @@ modules:
        strictSSL: false
        name: srv-binding
        url: ~{srv-url}    
+   properties:
+      TENANT_HOST_PATTERN: '^(.*)-my-bookshop-app.cfapps.eu10.hana.ondemand.com'    
 
 
 
@@ -77,8 +79,8 @@ resources:
      service-plan: application
      path: xs-security.json  
      config:
-       xsappname: -${space}    #  name + space dependency
-       tenant-mode: dedicated
+       xsappname: ${default-xsappname}    #  name + space dependency
+       tenant-mode: shared
        ##  path to xs-security.json to add roles and scopes
        # path: ./xs-security.json
        ## or inline definition

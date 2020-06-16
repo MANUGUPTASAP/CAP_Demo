@@ -18,6 +18,9 @@
   },
   "scripts": {},
   "cds": {
+    "app": {
+      "urlpart": "my-bookshop-srv.cfapps.eu10.hana.ondemand.com"
+    },
     "requires": {
       "db": {
         "kind": "hana",
