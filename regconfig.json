@@ -1,10 +1,10 @@
 {
- "xsappname":"my-bookshop-uaa-mt-provider!t48522",
- "appname":"my-bookshop-uaa-mt-provider!t48522",
+ "xsappname":"my-bookshop-uaa-mt-provider",
+ "appname":"my-bookshop-uaa-mt-provider",
  "appUrls": {
     "onSubscription" : "https://cf-isa-m-provider-provider-my-bookshop-srv.cfapps.eu10.hana.ondemand.com/mtx/v1/provisioning/tenant/{tenantId}"
  },
- "displayName" : "CAP Bookshop SaaS App",
+ "displayName" : "CAP Bookshop SaaS App - Test 22",
  "description" : "A Bookshop SaaS application made with CAP",
  "category": "CAP"
 }
