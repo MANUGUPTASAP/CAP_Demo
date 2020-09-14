@@ -16,26 +16,23 @@
     "passport": "^0.4.0",
     "grunt": "~0.4.5"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "cds run"
+  },
   "cds": {
     "app": {
       "urlpart": "my-bookshop-srv.cfapps.eu10.hana.ondemand.com"
     },
     "requires": {
       "db": {
-        "kind": "hana",
-        "model": [
-          "db",
-          "srv"
-        ],
-        "multiTenant": true,
-        "vcap": {
-          "label": "managed-hana"
-        }
+        "kind": "sqlite"
       },
       "uaa": {
         "kind": "xsuaa"
       }
     }
+  },
+  "devDependencies": {
+    "sqlite3": "^4.2.0"
   }
 }

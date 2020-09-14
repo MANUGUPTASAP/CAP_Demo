@@ -19,24 +19,6 @@ build-parameters:
 
 modules:
  # --------------------- SERVER MODULE ------------------------
- - name: my-bookshop-srv
- # ------------------------------------------------------------
-   type: nodejs
-   path: gen/srv
-   properties:
-     EXIT: 1  # required by deploy.js task to terminate 
-     SAP_JWT_TRUST_ACL: [{"clientid":"*","identityzone":"sap-provisioning"}]  # Trust between server and SaaS Manager
-   requires:
-    # Resources extracted from CAP configuration
-    - name: my-bookshop-db-mt
-    - name: my-bookshop-uaa-mt
-   provides:
-    - name: srv-binding      # required by consumers of CAP services (e.g. approuter)
-      properties:
-        srv-url: ${default-url}
-    - name: mtx-binding      # potentially required by approuter
-      properties:
-        mtx-url: ${default-url}
 
  - name: my-bookshop-app
    type: html5
@@ -45,15 +27,6 @@ modules:
       builder: grunt
    requires:
     - name: my-bookshop-uaa-mt
-    - name: srv-binding
-      group: destinations
-      properties:
-       forwardAuthToken: true
-       strictSSL: false
-       name: srv-binding
-       url: ~{srv-url}    
-   properties:
-      TENANT_HOST_PATTERN: '^(.*)-my-bookshop-app.cfapps.eu10.hana.ondemand.com'    
 
 
 
@@ -61,15 +34,6 @@ resources:
  # services extracted from CAP configuration
  # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
 # ------------------------------------------------------------
- - name: my-bookshop-db-mt
-# ------------------------------------------------------------
-   type: org.cloudfoundry.managed-service
-   parameters:
-     service: managed-hana
-     service-plan: hdi-shared
-   properties:
-     hdi-service-name: ${service-name}
-
 # ------------------------------------------------------------
  - name: my-bookshop-uaa-mt
 # ------------------------------------------------------------
@@ -80,7 +44,6 @@ resources:
      path: xs-security.json  
      config:
        xsappname: ${default-xsappname}-${space}    #  name + space dependency
-       tenant-mode: shared
        ##  path to xs-security.json to add roles and scopes
        # path: ./xs-security.json
        ## or inline definition
